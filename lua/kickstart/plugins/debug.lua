@@ -23,6 +23,8 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+
+    'mfussenegger/nvim-dap-python',
   },
   keys = function(_, keys)
     local dap = require 'dap'
@@ -50,6 +52,7 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+    local dap_python = require('dap-python')
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -65,6 +68,21 @@ return {
       ensure_installed = {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
+      },
+    }
+
+    dap_python.setup('C:\\Users\\Exide\\AppData\\Local\\Programs\\Python\\Python310\\python.exe')
+
+    -- (Optional) Set up specific configurations for Python projects
+    dap.configurations.python = {
+      {
+        type = 'python',
+        request = 'launch',
+        name = "Launch file",
+        program = "${file}",
+        pythonPath = function()
+          return 'C:\\Users\\Exide\\AppData\\Local\\Programs\\Python\\Python310\\python.exe'
+        end,
       },
     }
 
