@@ -2,4 +2,14 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+vim.g.VM_maps = {
+    -- ['Find Under'] = '<C-d>',
+    -- ['Find Subword Under'] = '<C-d>',
+    ["Select Cursor Down"] = '<M-C-Down>',
+    ["Select Cursor Up"]   = '<M-C-Up>',
+  }
+
+return {
+    "mg979/vim-visual-multi",
+    branch = "master",
+}
