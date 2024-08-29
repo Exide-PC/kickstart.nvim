@@ -597,7 +597,7 @@ require('lazy').setup({
           },
         },
 
-        pylint = {}, -- static linter
+        -- pylint = {}, -- static linter -- removed for now to not annoy
         pyright = {}, -- language server
         debugpy = {}, -- debugger
       }
