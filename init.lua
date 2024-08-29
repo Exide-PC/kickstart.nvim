@@ -568,6 +568,18 @@ require('lazy').setup({
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+
+      local util = require 'lspconfig.util'
+      local root_files = {
+        'pyproject.toml',
+        'setup.py',
+        'setup.cfg',
+        -- 'requirements.txt', -- crucial to omit it because it messes up root directory for pyright
+        'Pipfile',
+        'pyrightconfig.json',
+        '.git',
+      }
+      
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -598,7 +610,12 @@ require('lazy').setup({
         },
 
         -- pylint = {}, -- static linter -- removed for now to not annoy
-        pyright = {}, -- language server
+        pyright = { -- language server
+          root_dir = function(fname)
+            -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/pyright.lua
+            return util.root_pattern(unpack(root_files))(fname)
+          end,
+        }, 
         debugpy = {}, -- debugger
       }
 
