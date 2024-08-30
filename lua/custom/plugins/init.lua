@@ -10,6 +10,18 @@ vim.g.VM_maps = {
 }
 
 return {
-    "mg979/vim-visual-multi",
-    branch = "master",
+  {
+    'mg979/vim-visual-multi',
+    branch = 'master',
+  },
+  {
+    'natecraddock/workspaces.nvim',
+    config = function()
+      require('workspaces').setup({
+        hooks = {
+          open = { "Telescope find_files" },
+        }
+      })
+    end,
+  },
 }

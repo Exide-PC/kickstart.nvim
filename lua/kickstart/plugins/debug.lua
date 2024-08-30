@@ -52,7 +52,7 @@ return {
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
-    local dap_python = require('dap-python')
+    local dap_python = require 'dap-python'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -71,7 +71,7 @@ return {
       },
     }
 
-    dap_python.setup('C:\\Users\\Exide\\AppData\\Local\\Programs\\Python\\Python310\\python.exe')
+    dap_python.setup 'C:\\Users\\Exide\\AppData\\Local\\Programs\\Python\\Python310\\python.exe'
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
@@ -100,8 +100,8 @@ return {
     dap.listeners.before.event_exited['dapui_config'] = dapui.close
 
     vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = 'DapBreakpoint', linehl = '', numhl = '' })
-    vim.fn.sign_define('DapBreakpointCondition', { text = '⚫️', texthl = '', linehl = '', numhl = '' })
-    vim.fn.sign_define('DapBreakpointRejected', { text = '🔵', texthl = '', linehl = '', numhl = '' })
+    vim.fn.sign_define('DapBreakpointCondition', { text = '🔵', texthl = '', linehl = '', numhl = '' })
+    vim.fn.sign_define('DapBreakpointRejected', { text = '⚫️', texthl = '', linehl = '', numhl = '' })
     vim.fn.sign_define('DapLogPoint', { text = '🟢', texthl = '', linehl = '', numhl = '' })
     vim.fn.sign_define('DapStopped', { text = '🟡', texthl = '', linehl = '', numhl = '' })
 
