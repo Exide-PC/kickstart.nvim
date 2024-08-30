@@ -580,7 +580,7 @@ require('lazy').setup({
         'pyrightconfig.json',
         '.git',
       }
-      
+
       local servers = {
         -- clangd = {},
         -- gopls = {},
@@ -616,7 +616,7 @@ require('lazy').setup({
             -- https://github.com/neovim/nvim-lspconfig/blob/master/lua/lspconfig/server_configurations/pyright.lua
             return util.root_pattern(unpack(root_files))(fname)
           end,
-        }, 
+        },
         debugpy = {}, -- debugger
       }
 

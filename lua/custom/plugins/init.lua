@@ -3,11 +3,11 @@
 --
 -- See the kickstart.nvim README for more information
 vim.g.VM_maps = {
-    -- ['Find Under'] = '<C-d>',
-    -- ['Find Subword Under'] = '<C-d>',
-    ["Select Cursor Down"] = '<M-C-Down>',
-    ["Select Cursor Up"]   = '<M-C-Up>',
-  }
+  -- ['Find Under'] = '<C-d>',
+  -- ['Find Subword Under'] = '<C-d>',
+  ['Select Cursor Down'] = '<M-C-j>',
+  ['Select Cursor Up'] = '<M-C-k>',
+}
 
 return {
     "mg979/vim-visual-multi",
