@@ -32,8 +32,8 @@ return {
     return {
       -- Basic debugging keymaps, feel free to change to your liking!
       { '<F5>', dap.continue, desc = 'Debug: Start/Continue' },
-      { '<F1>', dap.step_into, desc = 'Debug: Step Into' },
-      { '<F2>', dap.step_over, desc = 'Debug: Step Over' },
+      { '<F1>', dap.step_over, desc = 'Debug: Step Over' },
+      { '<F2>', dap.step_into, desc = 'Debug: Step Into' },
       { '<F3>', dap.step_out, desc = 'Debug: Step Out' },
       { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
       { '<leader>td', dapui.toggle, desc = 'Debug: Toggle UI' },
@@ -72,19 +72,6 @@ return {
     }
 
     dap_python.setup('C:\\Users\\Exide\\AppData\\Local\\Programs\\Python\\Python310\\python.exe')
-
-    -- (Optional) Set up specific configurations for Python projects
-    dap.configurations.python = {
-      {
-        type = 'python',
-        request = 'launch',
-        name = "Launch file",
-        program = "${file}",
-        pythonPath = function()
-          return 'C:\\Users\\Exide\\AppData\\Local\\Programs\\Python\\Python310\\python.exe'
-        end,
-      },
-    }
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
