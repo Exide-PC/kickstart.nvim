@@ -24,7 +24,7 @@ return {
       }
     end,
     keys = {
-        { '<leader>wo', '<cmd>Telescope workspaces<CR>', desc = '[W]orkspace [O]pen' },
+      { '<leader>wo', '<cmd>Telescope workspaces theme=dropdown<CR>', desc = '[W]orkspace [O]pen' },
     },
   },
 }
