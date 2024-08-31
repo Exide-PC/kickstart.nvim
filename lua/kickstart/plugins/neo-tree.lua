@@ -15,11 +15,19 @@ return {
   },
   opts = {
     filesystem = {
+      filtered_items = {
+        -- intentionally exposing hidden files to not waste time figuring out telescope find_files configuration
+        hide_dotfiles = false,
+        hide_gitignored = false,
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
         },
       },
     },
+    window = {
+      position = 'right',
+    }
   },
 }
