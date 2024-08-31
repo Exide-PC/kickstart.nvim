@@ -17,11 +17,14 @@ return {
   {
     'natecraddock/workspaces.nvim',
     config = function()
-      require('workspaces').setup({
+      require('workspaces').setup {
         hooks = {
-          open = { "Telescope find_files" },
-        }
-      })
+          open = { 'Telescope find_files' },
+        },
+      }
     end,
+    keys = {
+        { '<leader>wo', '<cmd>Telescope workspaces<CR>', desc = '[W]orkspace [O]pen' },
+    },
   },
 }
