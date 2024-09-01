@@ -72,7 +72,8 @@ return {
       },
     }
 
-    dap_python.setup 'C:\\Users\\Exide\\AppData\\Local\\Programs\\Python\\Python310\\python.exe'
+    -- accordingly to https://github.com/mfussenegger/nvim-dap-python?tab=readme-ov-file#usage
+    dap_python.setup("python")
 
     -- Dap UI setup
     -- For more information, see |:help nvim-dap-ui|
