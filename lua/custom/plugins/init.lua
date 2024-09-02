@@ -27,4 +27,67 @@ return {
       { '<leader>wo', '<cmd>Telescope workspaces theme=dropdown<CR>', desc = '[W]orkspace [O]pen' },
     },
   },
+  {
+    --
+    'ThePrimeagen/harpoon',
+    config = function()
+      require('harpoon').setup()
+    end,
+    keys = {
+      { '<leader>st', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = '[S]earch harpoon [t]ab' },
+    },
+  },
+  {
+    -- https://github.com/nvimdev/dashboard-nvim
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    dependencies = {
+      {'nvim-tree/nvim-web-devicons'}
+    },
+    config = function()
+      vim.api.nvim_set_hl(0, 'DashboardHeader', { fg = '#cccccc' })
+      -- vim.api.nvim_set_hl(0, 'DashboardFooter', { fg = '#ff0000' })
+      vim.api.nvim_set_hl(0, 'DashboardDesc', { fg = '#3794ff' })
+      vim.api.nvim_set_hl(0, 'DashboardKey', { fg = '#989898' })
+      vim.api.nvim_set_hl(0, 'DashboardIcon', { fg = '#cccccc' })
+      vim.api.nvim_set_hl(0, 'DashboardShortCut', { fg = '#3794ff' })
+
+      require('dashboard').setup {
+        theme = 'doom',
+        config = {
+          --header = {}, --your header
+          week_header = {
+            enable = true
+          },
+          center = {
+            {
+              icon = ' ',
+              desc = 'Open Workspace            ',
+              key = 'w',
+              keymap = 'SPC w o',
+              key_format = ' %s', -- remove default surrounding `[]`
+              action = 'Telescope workspaces theme=dropdown',
+            },
+            {
+              icon = ' ',
+              desc = 'Neovim Settings',
+              key = 'n',
+              keymap = 'SPC s n',
+              key_format = ' %s', -- remove default surrounding `[]`
+              action = 'lua require("telescope.builtin").find_files({ cwd = vim.fn.stdpath "config" })'
+            },
+          },
+          footer = {}  --your footer
+        }
+      }
+    end,
+  },
+  {
+    'folke/zen-mode.nvim',
+    opts = {
+      window = {
+        width = 150,
+      },
+    },
+  },
 }
