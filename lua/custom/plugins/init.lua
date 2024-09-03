@@ -31,10 +31,15 @@ return {
     --
     'ThePrimeagen/harpoon',
     config = function()
-      require('harpoon').setup()
+      require('harpoon').setup({
+        tabline = true,
+        tabline_prefix = "   ",
+        tabline_suffix = "   ",
+      })
     end,
     keys = {
-      { '<leader>st', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = '[S]earch harpoon [t]ab' },
+      { '<leader>ts', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = '[S]earch harpoon [t]ab' },
+      { '<leader>ta', '<cmd>lua require("harpoon.mark").add_file()<CR>', desc = '[A]dd harpoon [t]ab' },
     },
   },
   {
