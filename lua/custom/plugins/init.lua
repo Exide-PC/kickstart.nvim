@@ -38,6 +38,9 @@ return {
       vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
 
       require('harpoon').setup({
+        menu = {
+          width = 80, -- or dynamically: width = vim.api.nvim_win_get_width(0) - 4,
+        },
         tabline = true,
         tabline_prefix = "   ",
         tabline_suffix = "   ",
