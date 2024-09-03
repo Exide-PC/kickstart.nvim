@@ -359,6 +359,17 @@ require('lazy').setup({
             require('telescope.themes').get_dropdown(),
           },
         },
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-c>"] = function ()
+                -- By default telescope closes on ctrl-c when usually this is moving to normal mode.
+                -- Bretty sure it can be done smarter, but that's ok for now
+                vim.api.nvim_input("<Esc>")
+              end
+            },
+          },
+        }
       }
 
       -- Enable Telescope extensions if they are installed
