@@ -31,6 +31,12 @@ return {
     --
     'ThePrimeagen/harpoon',
     config = function()
+      vim.cmd('highlight! HarpoonInactive guibg=NONE guifg=#9b9b9b')
+      vim.cmd('highlight! HarpoonActive guibg=NONE guifg=white')
+      vim.cmd('highlight! HarpoonNumberActive guibg=NONE guifg=#3794ff')
+      vim.cmd('highlight! HarpoonNumberInactive guibg=NONE guifg=#3794ff')
+      vim.cmd('highlight! TabLineFill guibg=NONE guifg=white')
+
       require('harpoon').setup({
         tabline = true,
         tabline_prefix = "   ",
@@ -38,8 +44,8 @@ return {
       })
     end,
     keys = {
-      { '<leader>ts', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = '[S]earch harpoon [t]ab' },
-      { '<leader>ta', '<cmd>lua require("harpoon.mark").add_file()<CR>', desc = '[A]dd harpoon [t]ab' },
+      { '<leader>t', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = 'Select harpoon [t]ab' },
+      { '<leader>a', '<cmd>lua require("harpoon.mark").add_file()<CR>', desc = '[A]dd harpoon tab' },
     },
   },
   {
