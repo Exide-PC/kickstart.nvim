@@ -37,7 +37,7 @@ return {
       { '<F3>', dap.step_out, desc = 'Debug: Step Out' },
       { '<F4>', dap.terminate, desc = 'Debug: Stop' },
       { '<leader>b', dap.toggle_breakpoint, desc = 'Debug: Toggle Breakpoint' },
-      { '<leader>td', dapui.toggle, desc = 'Debug: Toggle UI' },
+      -- { '<leader>td', dapui.toggle, desc = 'Debug: Toggle UI' },
       {
         '<leader>B',
         function()
