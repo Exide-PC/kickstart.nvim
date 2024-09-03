@@ -44,8 +44,11 @@ return {
       })
     end,
     keys = {
-      { '<leader>t', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = 'Select harpoon [t]ab' },
+      { '<leader>t', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = 'Select [t]ab' },
       { '<leader>a', '<cmd>lua require("harpoon.mark").add_file()<CR>', desc = '[A]dd harpoon tab' },
+      { '<leader>1', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>', desc = 'Open tab [1]' },
+      { '<leader>2', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>', desc = 'Open tab [2]' },
+      { '<leader>3', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>', desc = 'Open tab [3]' },
     },
   },
   {
@@ -109,4 +112,15 @@ return {
       },
     },
   },
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('lualine').setup({
+        -- options = {
+        --   theme = 'codedark',
+        -- }
+      })
+    end
+  }
 }
