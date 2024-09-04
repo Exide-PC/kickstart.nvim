@@ -49,6 +49,8 @@ return {
     keys = {
       { '<leader>t', '<cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>', desc = 'Open tab' },
       { '<leader>T', '<cmd>lua require("harpoon.mark").add_file()<CR>', desc = 'Add tab' },
+      { '<tab>', '<cmd>lua require("harpoon.ui").nav_next()<CR>', desc = 'Next tab' },
+      { '<s-tab>', '<cmd>lua require("harpoon.ui").nav_prev()<CR>', desc = 'Prev tab' },
       -- { '<leader>1', '<cmd>lua require("harpoon.ui").nav_file(1)<CR>', desc = 'Goto tab [1]' },
       -- { '<leader>2', '<cmd>lua require("harpoon.ui").nav_file(2)<CR>', desc = 'Goto tab [2]' },
       -- { '<leader>3', '<cmd>lua require("harpoon.ui").nav_file(3)<CR>', desc = 'Goto tab [3]' },
