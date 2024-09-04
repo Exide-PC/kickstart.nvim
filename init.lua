@@ -190,9 +190,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-vim.keymap.set('n', '<M-C-h>', 'ddkP', { desc = 'Move line up', noremap = true, silent = true })
-vim.keymap.set('n', '<M-C-l>', 'ddp', { desc = 'Move line down', noremap = true, silent = true })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -287,6 +284,7 @@ require('lazy').setup({
         { '<leader>d', group = '[D]ocument' },
         -- { '<leader>r', group = '[R]ename' },
         { '<leader>s', group = '[S]earch' },
+        { '<leader>t', group = '[T]ab' },
         -- { '<leader>w', group = '[W]orkspace' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- adds useful stuff in visual mode, so opting-in
         { '<leader>ht', group = '[T]oggle' },
