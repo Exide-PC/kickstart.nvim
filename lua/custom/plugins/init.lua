@@ -116,7 +116,7 @@ return {
     'folke/zen-mode.nvim',
     opts = {
       window = {
-        width = 150,
+        width = 120,
       },
     },
   },
@@ -162,36 +162,36 @@ return {
   --     { '<leader>dc', '<cmd>DiffviewClose<CR>' },
   --   }
   -- },
-  {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
-    config = function ()
-      vim.opt.termguicolors = true
-
-      vim.keymap.set('n', '<leader>tt', '<cmd>BufferLinePick<CR>', { desc = 'Pick tab' })
-      vim.keymap.set('n', '<leader>tcc', '<cmd>bd<CR>', { desc = 'Close current tab' })
-      vim.keymap.set('n', '<leader>tcp', '<cmd>BufferLinePickClose<CR>', { desc = 'Pick tab to close' })
-      vim.keymap.set('n', '<leader>tch', '<cmd>BufferLineCloseLeft<CR>', { desc = 'Close to the Left' })
-      vim.keymap.set('n', '<leader>tcl', '<cmd>BufferLineCloseRight<CR>', { desc = 'Close to the Right' })
-      vim.keymap.set('n', '<leader>tco', '<cmd>BufferLineCloseOthers<CR>', { desc = 'Close Others' })
-      -- vim.keymap.set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', { desc = 'Tab #1' })
-      -- vim.keymap.set('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', { desc = 'Tab #2' })
-      -- vim.keymap.set('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', { desc = 'Tab #3' })
-      vim.keymap.set('n', '<M-C-h>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous tab', noremap = true, silent = true })
-      vim.keymap.set('n', '<M-C-l>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next tab', noremap = true, silent = true })
-
-      local bufferline = require('bufferline')
-
-      bufferline.setup({
-        options = {
-          close_command = "bdelete %d",       -- can be a string | function, | false see "Mouse actions"
-          style_preset = bufferline.style_preset.default,
-          diagnostics = "nvim_lsp",
-          -- separator_style = 'slant',
-        }
-      })
-    end,
-    -- keys break tabs for some reason
-  },
+  -- {
+  --   'akinsho/bufferline.nvim',
+  --   version = "*",
+  --   dependencies = 'nvim-tree/nvim-web-devicons',
+  --   config = function ()
+  --     vim.opt.termguicolors = true
+  --
+  --     vim.keymap.set('n', '<leader>tt', '<cmd>BufferLinePick<CR>', { desc = 'Pick tab' })
+  --     vim.keymap.set('n', '<leader>tcc', '<cmd>bd<CR>', { desc = 'Close current tab' })
+  --     vim.keymap.set('n', '<leader>tcp', '<cmd>BufferLinePickClose<CR>', { desc = 'Pick tab to close' })
+  --     vim.keymap.set('n', '<leader>tch', '<cmd>BufferLineCloseLeft<CR>', { desc = 'Close to the Left' })
+  --     vim.keymap.set('n', '<leader>tcl', '<cmd>BufferLineCloseRight<CR>', { desc = 'Close to the Right' })
+  --     vim.keymap.set('n', '<leader>tco', '<cmd>BufferLineCloseOthers<CR>', { desc = 'Close Others' })
+  --     -- vim.keymap.set('n', '<leader>1', '<cmd>BufferLineGoToBuffer 1<CR>', { desc = 'Tab #1' })
+  --     -- vim.keymap.set('n', '<leader>2', '<cmd>BufferLineGoToBuffer 2<CR>', { desc = 'Tab #2' })
+  --     -- vim.keymap.set('n', '<leader>3', '<cmd>BufferLineGoToBuffer 3<CR>', { desc = 'Tab #3' })
+  --     vim.keymap.set('n', '<M-C-h>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Previous tab', noremap = true, silent = true })
+  --     vim.keymap.set('n', '<M-C-l>', '<cmd>BufferLineCycleNext<CR>', { desc = 'Next tab', noremap = true, silent = true })
+  --
+  --     local bufferline = require('bufferline')
+  --
+  --     bufferline.setup({
+  --       options = {
+  --         close_command = "bdelete %d",       -- can be a string | function, | false see "Mouse actions"
+  --         style_preset = bufferline.style_preset.default,
+  --         diagnostics = "nvim_lsp",
+  --         -- separator_style = 'slant',
+  --       }
+  --     })
+  --   end,
+  --   -- keys break tabs for some reason
+  -- },
 }
