@@ -347,6 +347,25 @@ require('lazy').setup({
 
       -- [[ Configure Telescope ]]
       -- See `:help telescope` and `:help telescope.setup()`
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "TelescopeResults",
+        callback = function(ctx)
+          print(vim.inspect(ctx))
+          vim.api.nvim_buf_call(ctx.buf, function()
+            vim.fn.matchadd("TelescopeParent", "\t\t.*$")
+            vim.api.nvim_set_hl(0, "TelescopeParent", { link = "Comment" })
+          end)
+        end,
+      })
+
+      local function custom_path_display(_, path)
+        local tail = vim.fs.basename(path)
+        local parent = vim.fs.dirname(path)
+        if parent == "." then return tail end
+        return string.format("%s\t\t%s", tail, parent)
+      end
+
       require('telescope').setup {
         -- You can put your default mappings / updates / etc. in here
         --  All the info you're looking for is in `:help telescope.setup()`
@@ -356,7 +375,17 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            -- thank you https://github.com/nvim-telescope/telescope.nvim/issues/2014#issuecomment-1873229658
+            path_display = custom_path_display
+          },
+          lsp_references = {
+            path_display = {
+              'tail', -- approach above does not work here
+            }
+          }
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
